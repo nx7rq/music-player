@@ -116,7 +116,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun openPlaylistPicker(song: Song) {
         val intent = Intent(this, PlaylistActivity::class.java)
-        intent.putExtra("song", song)
+        intent.putExtra("songId", song.id)
+        intent.putExtra("songTitle", song.title)
         startActivity(intent)
     }
 
@@ -200,10 +201,8 @@ class MainActivity : AppCompatActivity() {
                 val current = AppCompatDelegate.getDefaultNightMode()
                 if (current == AppCompatDelegate.MODE_NIGHT_YES) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                    item.title = "Dark Mode"
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                    item.title = "Light Mode"
                 }
                 true
             }
