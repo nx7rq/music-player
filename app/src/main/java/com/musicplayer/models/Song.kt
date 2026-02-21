@@ -1,9 +1,5 @@
 package com.musicplayer.models
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-
-@Parcelize
 data class Song(
     val id: Long,
     val title: String,
@@ -12,7 +8,7 @@ data class Song(
     val duration: Long,
     val uri: String,
     val albumArtUri: String? = null
-) : Parcelable {
+) {
     fun durationFormatted(): String {
         val minutes = (duration / 1000) / 60
         val seconds = (duration / 1000) % 60
