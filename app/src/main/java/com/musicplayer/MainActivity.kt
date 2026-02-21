@@ -191,13 +191,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
+        menu.add(0, 1, 0, "Dark Mode")
+        menu.add(0, 2, 0, "Playlists")
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_dark_mode -> {
+            1 -> {
                 val current = AppCompatDelegate.getDefaultNightMode()
                 if (current == AppCompatDelegate.MODE_NIGHT_YES) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -206,7 +207,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 true
             }
-            R.id.action_playlists -> {
+            2 -> {
                 startActivity(Intent(this, PlaylistActivity::class.java))
                 true
             }
